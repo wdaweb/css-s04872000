@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>精確還原注射器</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        .syringe-container {
+            display: flex;
+            align-items: center;
+        }
+
+        /* 最左側推桿頭 */
+        .plunger-end {
+            width: 45px;
+            height: 140px;
+            background: linear-gradient(to right, #f2f2f2, #e0e0e0, #f8f8f8);
+            border: 1px solid #d3d3d3;
+            border-radius: 8px;
+        }
+
+        /* 推桿桿身 */
+        .plunger-shaft {
+            width: 100px;
+            height: 80px;
+            background: linear-gradient(to bottom, #ffffff, #f0f0f0, #e8e8e8);
+            border-top: 1px solid #d3d3d3;
+            border-bottom: 1px solid #d3d3d3;
+        }
+
+        /* 針筒主體 */
+        .barrel {
+            position: relative;
+            width: 700px; /* 大尺寸 */
+            height: 160px;
+            background: #ffffff;
+            border: 1.5px solid #a0a0a0;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* 精確刻度：使用漸層背景模擬，數量多且清晰 */
+        .barrel::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 35px; /* 刻度長度 */
+            background: repeating-linear-gradient(
+                90deg,
+                #999 0px,
+                #999 2px,    /* 刻度線條寬度 */
+                transparent 2px,
+                transparent 28px /* 刻度間距 */
+            );
+            z-index: 5;
+            padding-left: 15px; /* 讓第一個刻度偏移一點 */
+        }
+
+        /* 黑色活塞 */
+        .stopper {
+            width: 85px;
+            height: 100%;
+            background: #000;
+            margin-left: 310px; /* 依照原圖位置放置 */
+            z-index: 4;
+        }
+
+        /* 藥液 */
+        .liquid {
+            flex-grow: 1;
+            height: 100%;
+            background-color: #f7f9a8; /* 原圖的淡黃色 */
+            border-left: 1px solid #000;
+            z-index: 3;
+        }
+
+        /* Made in Taiwan 文字 */
+        .brand {
+            position: absolute;
+            bottom: 12px;
+            left: 20px;
+            color: #b0b0b0;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* 針頭連接座 */
+        .nozzle {
+            width: 85px;
+            height: 110px;
+            background: linear-gradient(to bottom, #fdfdfd, #dcdcdc);
+            border: 1px solid #a0a0a0;
+            border-left: none;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* 針頭 */
+        .needle {
+            width: 150px;
+            height: 1.5px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="syringe-container">
+        <div class="plunger-end"></div>
+        <div class="plunger-shaft"></div>
+
+        <div class="barrel">
+            <div class="stopper"></div>
+            <div class="liquid"></div>
+            <div class="brand">Made in Taiwan</div>
+        </div>
+
+        <div class="nozzle"></div>
+        <div class="needle"></div>
+    </div>
+
+</body>
+</html>

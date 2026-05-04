@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Kumamon</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fff;
+        }
+
+        /* 臉部主體 */
+        .kumamon-face {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: #000;
+            border-radius: 50%;
+        }
+
+        /* 耳朵 */
+        .ear {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+            border: 6px solid #fff; /* 耳朵內圈白色 */
+            border-radius: 50%;
+            top: -5px;
+            box-sizing: border-box;
+        }
+        .ear.left { left: 40px; }
+        .ear.right { right: 40px; }
+
+        /* 腮紅 */
+        .cheek {
+            position: absolute;
+            width: 85px;
+            height: 85px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            top: 110px;
+            z-index: 2;
+        }
+        .cheek.left { left: -30px; }
+        .cheek.right { right: -30px; }
+
+        /* 眼睛 */
+        .eye {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: #fff;
+            border-radius: 50%;
+            top: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .eye::after {
+            content: '';
+            width: 25px;
+            height: 25px;
+            background-color: #000;
+            border-radius: 50%;
+        }
+        .eye.left { left: 65px; }
+        .eye.right { right: 65px; }
+
+        /* 嘴部區域 (白色橢圓) */
+        .mouth-area {
+            position: absolute;
+            width: 140px;
+            height: 100px;
+            background-color: #fff;
+            border-radius: 50%;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        /* 鼻子 */
+        .nose {
+            width: 45px;
+            height: 30px;
+            background-color: #000;
+            border-radius: 50%;
+            margin-bottom: 5px;
+        }
+
+        /* 嘴巴 */
+        .mouth {
+            width: 60px;
+            height: 35px;
+            border-bottom: 8px solid #000;
+            border-radius: 50%;
+        }
+
+        /* 下巴白色 V 字 */
+        .v-mark {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 40px;
+            border-left: 12px solid #fff;
+            border-bottom: 12px solid #fff;
+            transform: translateX(-50%) rotate(-45deg);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="kumamon-face">
+        <div class="ear left"></div>
+        <div class="ear right"></div>
+        <div class="cheek left"></div>
+        <div class="cheek right"></div>
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="mouth-area">
+            <div class="nose"></div>
+            <div class="mouth"></div>
+        </div>
+        <div class="v-mark"></div>
+    </div>
+
+</body>
+</html>
